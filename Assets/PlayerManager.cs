@@ -14,8 +14,8 @@ public class PlayerManager : MonoBehaviour
     }
     public void FirstTime()
     {
-        hp_.text = "�������� - " + Hp + "/" + HpMax;
-        hunger_.text = "������� - " + Hunger + "/" + HungerMax;
+        hp_.text = "Здоровье - " + Hp + "/" + HpMax;
+        hunger_.text = "Сытость - " + Hunger + "/" + HungerMax;
         money_.text = money.ToString();
         magazineContent.text = enterMess;
         magazine.SetBool("show", true);
@@ -59,8 +59,8 @@ public class PlayerManager : MonoBehaviour
 
             IsEvent = false;
 
-            hp_.text = "�������� - " + Hp + "/" + HpMax;
-            hunger_.text = "������� - " + Hunger + "/" + HungerMax;
+            hp_.text = "Здоровье - " + Hp + "/" + HpMax;
+            hunger_.text = "Сытость - " + Hunger + "/" + HungerMax;
             money_.text = money.ToString();
 
             if ((Hp <= 0) | (Hunger <= 0)) SceneManager.LoadScene(5);
@@ -74,26 +74,29 @@ public class PlayerManager : MonoBehaviour
 
     public void Buy(bool hp)
     {
-        if(hp)
+        if(hp && (HpMax - Hp > HpOut))
         {
             Hp += HpOut;
             money -= HpCost;
-            hp_.text = "�������� - " + Hp + "/" + HpMax;
+            hp_.text = "Здоровье - " + Hp + "/" + HpMax;
         }
-        else
+        if(!hp && (HungerMax - Hunger > HungerOut))
         {
             Hunger += HungerOut;
             money -= HungerCost;
-            hp_.text = "������� - " + Hunger + "/" + HungerMax;
+            hunger_.text = "Сытость - " + Hunger + "/" + HungerMax;
         }
         money_.text = money.ToString();
+        
+        if (money < 0) SceneManager.LoadScene(7);
+        if (money > 250) SceneManager.LoadScene(6);
     }
 
     public Animator magazine;
     public Text magazineContent;
 
-    public string[] Colors = { "׸����", "�����", "Ƹ����", "�������" };
-    public string[] Types = { "��������", "�����" };
+    public string[] Colors = { "׸Черных", "Синих", "Жёлтых", "Красных" };
+    public string[] Types = { "Кораблей", "Мишин" };
     public void ShowMagazine()
     {
         string mess = "";

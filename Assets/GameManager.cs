@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Timer.gameObject.SetActive(true);
-            mess = "Запрещенно :" + "\n";
+            mess = "Р—Р°РїСЂРµС‰РµРЅРЅРѕ :" + "\n";
             int count = 0;
             for (int i = 0; i < canGo.Count; i++)
             {
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
     }
 
     public int Diff;
-    public string[] Colors = { "Чёрные", "Синие", "Жёлтые", "Красные" };
+    public string[] Colors = { "Р§С‘СЂРЅС‹Рµ", "РЎРёРЅРёРµ", "Р–С‘Р»С‚С‹Рµ", "РљСЂР°СЃРЅС‹Рµ" };
     public List<int> Plan; //Black -> Blue -> Yellow -> Red
     public List<bool> canGo; //Black -> Blue -> Yellow -> Red
 
@@ -199,8 +199,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        score_.text = "Счёт " + score;
-        errors_.text = "Ошибки " + errors;
+        score_.text = "пїЅпїЅпїЅпїЅ " + score;
+        errors_.text = "пїЅпїЅпїЅпїЅпїЅпїЅ " + errors;
     }
     public bool isEvent;
     public int EventCount;
@@ -211,9 +211,9 @@ public class GameManager : MonoBehaviour
         isEvent = true;
         EventCar = Random.Range(0, 2) == 0;
         SpawnWait /= 10;
-        string mess = "!Срочно!" + "\n" + EventCount;
-        if (EventCar) mess += " Машин";
-        else mess += " Кораблей";
+        string mess = "!РЎСЂРѕС‡РЅРѕ!" + "\n" + EventCount;
+        if (EventCar) mess += "РњР°С€РёРЅ";
+        else mess += "РљРѕСЂР°Р±Р»РµР№";
         enterMessage.SetMessage(mess, true);
     }
 
