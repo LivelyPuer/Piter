@@ -74,13 +74,13 @@ public class PlayerManager : MonoBehaviour
 
     public void Buy(bool hp)
     {
-        if(hp && (HpMax - Hp > HpOut))
+        if(hp && (HpMax - Hp >= HpOut))
         {
             Hp += HpOut;
             money -= HpCost;
             hp_.text = "Здоровье - " + Hp + "/" + HpMax;
         }
-        if(!hp && (HungerMax - Hunger > HungerOut))
+        if(!hp && (HungerMax - Hunger >= HungerOut))
         {
             Hunger += HungerOut;
             money -= HungerCost;
