@@ -199,8 +199,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        score_.text = "���� " + score;
-        errors_.text = "������ " + errors;
+        score_.text = "Счёт " + score;
+        errors_.text = "Ошибки " + errors;
     }
     public bool isEvent;
     public int EventCount;
